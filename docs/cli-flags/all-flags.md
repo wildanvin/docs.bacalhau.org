@@ -76,6 +76,7 @@ sidebar_position: 1
 ### Serve
 
 ```bash
+      --filecoin-unsealed-path string        The go template that can turn a filecoin CID into a local filepath with the unsealed data.
   -h, --help                                 help for serve
       --host string                          The host to listen on (for both api and swarm connections). (default "0.0.0.0")
       --ipfs-connect string                  The ipfs host multiaddress to connect to.

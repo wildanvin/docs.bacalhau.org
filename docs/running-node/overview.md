@@ -93,3 +93,19 @@ These are external programs that are passed the following data structure so they
 The `exec` probe is a script to run that will be given the job data on `stdin` and must exit with status code 0 if the job should be run.
 
 The `http` probe is a URL to POST the job data to and must return a 200 status code if the job should be run.
+
+## Filecoin Unsealed
+
+Bacalhau can work with filecoin storage providers who keep **unsealed** data on disk.
+
+You can configure the bacalhau node to know where to find the unsealed data by specifying the `--filecoin-unsealed-path` flag.
+
+This is a [go template](https://pkg.go.dev/text/template) string that will be passed a struct with a `Cid` property.
+
+For example - if you have a folder living at `/tmp/unsealed` you could use:
+
+```
+--filecoin-unsealed-path "/tmp/unsealed/{{.Cid}}"
+```
+
+And the bacalhau node will know to look for the unsealed data at `/tmp/unsealed/Qm...`.
